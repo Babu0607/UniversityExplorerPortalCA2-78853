@@ -1,0 +1,25 @@
+@using UniversityExplorerPortalCA2_78853.Models
+
+@if (University != null)
+{
+    <div class="card border-primary shadow mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Selected University Details</h4>
+        </div>
+        <div class="card-body">
+            <h3 class="text-dark">@University.Name</h3>
+            <p><strong>Country:</strong> @University.Country</p>
+            <p><strong>Primary Domain:</strong> <code>@University.PrimaryDomain</code></p>
+            <p>
+                <strong>Website:</strong> 
+                <a href="@University.PrimaryWebsite" target="_blank">@University.PrimaryWebsite</a>
+            </p>
+        </div>
+    </div>
+}
+
+@code{
+
+    [Parameter]
+    public University ? University { get; set; }
+}

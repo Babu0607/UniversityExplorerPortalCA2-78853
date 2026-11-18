@@ -1,0 +1,25 @@
+@using UniversityExplorerPortalCA2_78853.Models
+
+<label class="form-label fw-bold">Select Country:</label>
+<select class="form-select shadow-sm" value="@SelectedName" @onchange="HandleChange">
+    <option value="">--Choose Country--</option>
+    @foreach (var country in Countries)
+    {
+        <option value="@country.Name">@country.Name</option>
+
+    }
+</select>
+
+@code{
+
+    [Parameter] public List<Country> Countries { get; set; } = new();
+    [Parameter] public string ? SelectedName { get; set; }
+    [Parameter] public EventCallback<Country?> OnCountrySelected { get; set; }
+
+    private async Task HandleChange(ChangeEventArgs e)
+    {
+        var name = e.Value?.ToString();
+        var country = Countries.FirstOrDefault(c => c.Name == name);
+        await OnCountrySelected.InvokeAsync(country);
+    }
+}

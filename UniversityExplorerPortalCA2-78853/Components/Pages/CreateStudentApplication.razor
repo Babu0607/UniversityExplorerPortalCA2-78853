@@ -1,0 +1,76 @@
+@page "/student-applications/create"
+@rendermode InteractiveServer
+@using UniversityExplorerPortalCA2_78853.Models
+@using UniversityExplorerPortalCA2_78853.Services
+@using UniversityExplorerPortalCA2_78853.Components
+@inject StudentApplicationService StudentApplicationService
+
+<PageTitle>Create Student Application</PageTitle>
+
+<h3 class="mb-3 text-primary">Create Student Application</h3>
+
+@if (_success)
+{
+    <div class="alert alert-success">
+        Application submitted successfully!
+        <a href="/student-applications" class="alert-link ms-2">View all applications</a>
+    </div>
+}
+
+@if (_hasError)
+{
+    <div class="alert alert-danger">
+        Unable to submit the application. Please try again.
+        @if (!string.IsNullOrEmpty(_detailedError))
+        {
+            <div class="small mt-1"><strong>Details:</strong> @_detailedError</div>
+        }
+    </div>
+}
+
+<StudentApplicationForm Application="_newApplication"
+                        OnValidSubmit="HandleValidSubmit"
+                        IsSaving="_isSaving"
+                        ButtonText="Submit Application" />
+
+@code {
+    private StudentApplication _newApplication = NewApplication();
+    private bool _isSaving;
+    private bool _success;
+    private bool _hasError;
+    private string? _detailedError;
+
+    private static StudentApplication NewApplication() => new() { ApplicationDate = DateTime.Today };
+
+    private async Task HandleValidSubmit()
+    {
+        _isSaving = true;
+        _success = false;
+        _hasError = false;
+        _detailedError = null;
+
+        try
+        {
+            var ok = await StudentApplicationService.CreateApplicationAsync(_newApplication);
+
+            if (ok)
+            {
+                _success = true;
+                _newApplication = NewApplication();
+            }
+            else
+            {
+                _hasError = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            _hasError = true;
+            _detailedError = ex.Message;
+        }
+        finally
+        {
+            _isSaving = false;
+        }
+    }
+}

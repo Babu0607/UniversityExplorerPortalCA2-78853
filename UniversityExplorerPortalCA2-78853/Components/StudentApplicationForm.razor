@@ -1,0 +1,66 @@
+@using UniversityExplorerPortalCA2_78853.Models
+
+<EditForm Model="Application" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary class="text-danger"/>
+
+    <div class="mb-3">
+        <label class="form-label">Student Name</label>
+        <InputText class="form-control" @bind-Value="Application.StudentName" />
+        <ValidationMessage For="() => Application.StudentName" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email Address</label>
+        <InputText class="form-control" @bind-Value="Application.Email" />
+        <ValidationMessage For="() => Application.Email" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Country</label>
+        <InputText class="form-control" @bind-Value="Application.Country" />
+        <ValidationMessage For="() => Application.Country" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">University Name</label>
+        <InputText class="form-control" @bind-Value="Application.UniversityName" />
+        <ValidationMessage For="() => Application.UniversityName" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Course Name</label>
+        <InputText class="form-control" @bind-Value="Application.CourseName" />
+        <ValidationMessage For="() => Application.CourseName" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Application Date</label>
+        <InputDate class="form-control" @bind-Value="Application.ApplicationDate" />
+        <ValidationMessage For="() => Application.ApplicationDate" />
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Personal Statement (optional) </label>
+        <InputTextArea class="form-control" rows="3" @bind-Value="Application.PersonalStatement" />
+    </div>
+
+    <button type="submit" class="btn btn-primary"disabled="@IsSaving">
+        @(IsSaving ? "Saving......" : ButtonText)
+    </button>
+    @if (!string.IsNullOrEmpty(CancelHref))
+    {   
+        <a href="@CancelHref" class="btn btn-secondary ms-2">Cancel</a>
+    }
+</EditForm>
+
+
+@code {
+    [Parameter] public StudentApplication Application { get; set; } = new();
+    [Parameter] public string ButtonText { get; set; } = "Submit";
+    [Parameter] public bool IsSaving { get; set; }
+    [Parameter] public string?  CancelHref { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    private Task HandleSubmit() => OnValidSubmit.InvokeAsync();
+}

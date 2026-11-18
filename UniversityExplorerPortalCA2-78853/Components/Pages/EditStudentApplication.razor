@@ -1,0 +1,84 @@
+@page "/student-applications/edit/{id:int}"
+@rendermode InteractiveServer
+@using UniversityExplorerPortalCA2_78853.Models
+@using UniversityExplorerPortalCA2_78853.Services
+@using UniversityExplorerPortalCA2_78853.Components
+@inject StudentApplicationService StudentApplicationService
+@inject NavigationManager Navigation
+
+<PageTitle>Edit Application</PageTitle>
+
+<h3 class="text-primary mb-4">Edit Application</h3>
+
+@if (_isLoading)
+{
+    <p class="text-info">Loading application details...</p>
+}
+else if (_application == null)
+{
+    <div class="alert alert-warning">Application #@Id was not found.</div>
+    <a href="/student-applications" class="btn btn-secondary">Back to applications</a>
+}
+else
+{
+    @if (_saveError)
+    {
+        <div class="alert alert-danger">Unable to update application. Please try again.</div>
+    }
+    
+    <StudentApplicationForm Application="_application"
+                            OnValidSubmit="HandleValidSubmit"
+                            IsSaving="_isSaving"
+                            ButtonText="Update Application"
+                            CancelHref="/student-applications" />
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private StudentApplication? _application;
+    private bool _isLoading = true;
+    private bool _loadError;
+    private bool _isSaving;
+    private bool _saveError;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _isLoading = true;
+        _loadError = false;
+        try
+        {
+            _application = await StudentApplicationService.GetApplicationByIdAsync(Id);
+            if (_application != null) _application.ApplicationDate ??= DateTime.Today;
+        }
+        catch
+        {
+            _loadError = true;
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (_application == null) return;
+        
+        _isSaving = true;
+        _saveError = false;
+
+        var ok = await StudentApplicationService.UpdateApplicationAsync(Id, _application);
+        _isSaving = false;
+        
+        if (ok) 
+        {
+            Navigation.NavigateTo("/student-applications");
+        }
+        else 
+        {
+            _saveError = true;
+        }
+    }
+}

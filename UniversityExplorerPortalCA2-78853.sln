@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityExplorerPortalCA2-78853", "UniversityExplorerPortalCA2-78853\UniversityExplorerPortalCA2-78853.csproj", "{08EF6535-0118-4C93-B4FE-506B79ED114A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08EF6535-0118-4C93-B4FE-506B79ED114A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EF6535-0118-4C93-B4FE-506B79ED114A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EF6535-0118-4C93-B4FE-506B79ED114A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EF6535-0118-4C93-B4FE-506B79ED114A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

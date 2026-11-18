@@ -1,0 +1,18 @@
+@using UniversityExplorerPortalCA2_78853.Models
+
+<tr>
+    <td>@Application.Id</td>
+    <td>@Application.StudentName</td>
+    <td>@Application.UniversityName</td>
+    <td>@Application.Country</td>
+    <td>@Application.CourseName</td>
+    <td>@Application.ApplicationDate?.ToString("yyyy-MM-dd")</td>
+    <td>
+        <button class="btn btn-sm btn-outline-primary" @onclick="() => OnEdit.InvokeAsync(Application)">Edit</button>
+    </td>
+</tr>
+
+@code {
+    [Parameter] public StudentApplication Application { get; set; } = null!;
+    [Parameter] public EventCallback<StudentApplication> OnEdit { get; set; }
+}

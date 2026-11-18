@@ -1,0 +1,162 @@
+@page "/university-explorer"
+@rendermode InteractiveServer
+@using UniversityExplorerPortalCA2_78853.Models
+@using UniversityExplorerPortalCA2_78853.Services
+@using UniversityExplorerPortalCA2_78853.Components
+@inject CountryService CountryService
+@inject UniversityService UniversityService
+
+<PageTitle>University Explorer</PageTitle>
+
+<h3 class="mb-4">University Explorer</h3>
+
+@if (_isLoadingCountries)
+{
+    <p class="text-info">Loading countries...</p>
+}
+else if (_countryError)
+{
+    <div class="alert alert-danger">
+        Unable to retrieve countries. Please check your internet connection and try again.
+        <button class="btn btn-sm btn-outline-danger ms-2" @onclick="LoadCountriesAsync">Retry</button>
+    </div>
+}
+else
+{
+    <div class="row mb-4">
+        <div class="col-md-6 col-lg-4">
+            <CountrySelector Countries="_countries"
+                             SelectedName="@_selectedCountry?.Name"
+                             OnCountrySelected="HandleCountrySelected" />
+        </div>
+    </div>
+
+    @if (_selectedCountry != null)
+    {
+        <CountryDetails Country="_selectedCountry" />
+
+        @if (_isLoadingUniversities)
+        {
+            <p class="text-info">Loading universities...</p>
+        }
+        else if (_universityError)
+        {
+            <div class="alert alert-danger">Unable to retrieve universities for @_selectedCountry.Name.</div>
+        }
+        else if (_universities.Count == 0)
+        {
+            <p class="text-muted">No universities found for this country.</p>
+        }
+        else
+        {
+            <UniversityDetails University="_selectedUniversity" />
+
+            <h5 class="mb-3">Universities in @_selectedCountry.Name (@FilteredUniversities.Count())</h5>
+
+            <div class="mb-3">
+                <input class="form-control"
+                       @bind="SearchText"
+                       @bind:event="oninput"
+                       placeholder="Search university..." />
+            </div>
+
+            @if (!FilteredUniversities.Any())
+            {
+                <p class="text-muted">No universities match "@SearchText".</p>
+            }
+            else
+            {
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    @foreach (var uni in FilteredUniversities)
+                    {
+                        <div class="col">
+                            <UniversityCard University="uni" OnSelect="HandleUniversitySelected" />
+                        </div>
+                    }
+                </div>
+            }
+        }
+    }
+}
+
+
+@code
+{
+    private List<Country> _countries = new();
+    private List<University> _universities = new();
+    private Country? _selectedCountry;
+    private University? _selectedUniversity;
+    private string SearchText { get; set; } = "";
+    private bool _isLoadingCountries = true;
+    private bool _isLoadingUniversities;
+    private bool _countryError;
+    private bool _universityError;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCountriesAsync();
+    }
+
+    private async Task LoadCountriesAsync()
+    {
+        _isLoadingCountries = true;
+        _countryError = false;
+        try
+        {
+            _countries = await CountryService.GetCountriesAsync();
+        }
+        catch
+        {
+            _countryError = true;
+        }
+        finally
+        {
+            _isLoadingCountries = false;
+        }
+
+    }
+
+    private async Task HandleCountrySelected(Country ? country)
+    {
+        
+        _selectedCountry = country;
+        _selectedUniversity = null;
+        _universities = new List<University>();
+        _universityError = false;
+        SearchText = "";
+
+        if (country is null)
+        {
+            return;
+        }
+
+        _isLoadingUniversities = true;
+        try
+        {
+            _universities = await UniversityService.GetUniversitiesByCountryAsync(country.Name);
+        }
+        catch
+        {
+            _universityError = true;
+        }
+    }
+
+    private void HandleUniversitySelected(University uni)
+    {
+        _selectedUniversity = uni;
+    }
+
+
+    private IEnumerable<University> FilteredUniversities
+    {
+        get
+        {
+            if (string.IsNullOrWhiteSpace(SearchText))
+            {
+                return _universities;
+            }
+            return _universities.Where(u => u.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+        }
+    }
+}
