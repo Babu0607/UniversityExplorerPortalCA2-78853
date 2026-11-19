@@ -20,7 +20,8 @@ Name: Bavuudorj Khatanbaatar
     * View all submitted applications in a clean list.
     * Edit existing records.
     * Delete records when needed.
-* Interactive UI: Built using Blazor Server components so things update smoothly without reloading the whole page.
+* Interactive UI: Built using Blazor Server components so 
+* things update smoothly without reloading the whole page.
 
 ## Tech Stack
 * Framework: .NET (Blazor Server)
@@ -30,4 +31,4 @@ Name: Bavuudorj Khatanbaatar
 
 ## How to run it locally
 1. Clone the repo: bash
-   git clone [https://github.com/Babu0607/UniversityExplorerPortalCA2_78853.git](https://github.com/Babu0607/UniversityExplorerPortalCA2_78853.git)
+   git clone https://github.com/Babu0607/UniversityExplorerPortalCA2-78853 

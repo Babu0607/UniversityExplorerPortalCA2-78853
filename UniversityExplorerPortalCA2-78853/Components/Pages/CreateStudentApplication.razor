@@ -21,10 +21,11 @@
 {
     <div class="alert alert-danger">
         Unable to submit the application. Please try again.
-        @if (!string.IsNullOrEmpty(_detailedError))
-        {
-            <div class="small mt-1"><strong>Details:</strong> @_detailedError</div>
-        }
+        <br /><small>@StudentApplicationService.LastError</small>
+        @* @if (!string.IsNullOrEmpty(_detailedError)) *@
+        @* { *@
+        @*     <div class="small mt-1"><strong>Details:</strong> @_detailedError</div> *@
+        @* } *@
     </div>
 }
 
@@ -38,7 +39,7 @@
     private bool _isSaving;
     private bool _success;
     private bool _hasError;
-    private string? _detailedError;
+    // private string? _detailedError;
 
     private static StudentApplication NewApplication() => new() { ApplicationDate = DateTime.Today };
 
@@ -47,30 +48,18 @@
         _isSaving = true;
         _success = false;
         _hasError = false;
-        _detailedError = null;
 
-        try
+        var ok = await StudentApplicationService.CreateApplicationAsync(_newApplication);
+
+        _isSaving = false;
+        if (ok)
         {
-            var ok = await StudentApplicationService.CreateApplicationAsync(_newApplication);
-
-            if (ok)
-            {
-                _success = true;
-                _newApplication = NewApplication();
-            }
-            else
-            {
-                _hasError = true;
-            }
+            _success = true;
+            _newApplication = NewApplication();
         }
-        catch (Exception ex)
+        else
         {
             _hasError = true;
-            _detailedError = ex.Message;
-        }
-        finally
-        {
-            _isSaving = false;
         }
     }
 }

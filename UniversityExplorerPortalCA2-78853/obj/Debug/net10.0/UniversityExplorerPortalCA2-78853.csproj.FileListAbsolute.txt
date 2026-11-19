@@ -83,3 +83,4 @@
 /Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/obj/Debug/net10.0/UniversityExplorerPortalCA2-78853.genruntimeconfig.cache
 /Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/obj/Debug/net10.0/ref/UniversityExplorerPortalCA2-78853.dll
 /Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/obj/Debug/net10.0/compressed/dodz4gzhzx-{0}-8l5lch59bq-8l5lch59bq.gz
+/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/obj/Debug/net10.0/UniversityExplorerPortalCA2-78853.sourcelink.json

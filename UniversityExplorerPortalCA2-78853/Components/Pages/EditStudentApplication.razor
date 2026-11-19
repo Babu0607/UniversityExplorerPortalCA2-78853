@@ -14,16 +14,25 @@
 {
     <p class="text-info">Loading application details...</p>
 }
-else if (_application == null)
+else if (_loadError)
 {
-    <div class="alert alert-warning">Application #@Id was not found.</div>
-    <a href="/student-applications" class="btn btn-secondary">Back to applications</a>
+    <div class="alert alert-danger">Unable to retrieve data.</div>
+    @* <div class="alert alert-warning">Application #@Id was not found.</div> *@
+    @* <a href="/student-applications" class="btn btn-secondary">Back to applications</a> *@
+}
+else if (_application ==   null)
+{
+    <div class="alert alert-warning">Application #@Id not found.</div>
+    <a href="/student-appplications" class="btn btn-secondary">Back to applications</a>
 }
 else
 {
     @if (_saveError)
     {
-        <div class="alert alert-danger">Unable to update application. Please try again.</div>
+        <div class="alert alert-danger">
+            Unable to update application. Please try again.
+            <br /><small>@StudentApplicationService.LastError</small>
+        </div>
     }
     
     <StudentApplicationForm Application="_application"
@@ -43,10 +52,11 @@ else
     private bool _isSaving;
     private bool _saveError;
     
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         _isLoading = true;
         _loadError = false;
+        _saveError = false;
         try
         {
             _application = await StudentApplicationService.GetApplicationByIdAsync(Id);
