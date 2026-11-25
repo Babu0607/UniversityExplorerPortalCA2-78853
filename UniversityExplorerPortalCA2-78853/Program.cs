@@ -9,9 +9,16 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddHttpClient<CountryService>();
 builder.Services.AddHttpClient<UniversityService>();
-builder.Services.AddHttpClient<StudentApplicationService>();
+// builder.Services.AddHttpClient<StudentApplicationService>();
 
-
+builder.Services.AddHttpClient<StudentApplicationService>(client =>
+    {
+        client.BaseAddress = new Uri("https://edutots.net/");
+    })
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+    });
 
 var app = builder.Build();
 

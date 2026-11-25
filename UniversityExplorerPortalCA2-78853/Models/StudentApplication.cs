@@ -21,7 +21,7 @@ public class StudentApplication
     
     [Required(ErrorMessage = "Please type your student EmailAddress.")]
     [EmailAddress(ErrorMessage = "Invalid email format.")]
-    [JsonPropertyName("studentEmailAddress")]
+    [JsonPropertyName("email")]
     public string Email { get; set; } = string.Empty;
     
     [Required(ErrorMessage = "Please type your Country.")]

@@ -30,20 +30,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Db3VudHJ5RGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/CountrySelector.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Db3VudHJ5U2VsZWN0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/CreateStudentApplication.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9DcmVhdGVTdHVkZW50QXBwbGljYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/EditStudentApplication.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FZGl0U3R1ZGVudEFwcGxpY2F0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/CountrySelector.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudHJ5U2VsZWN0b3IucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/CreateStudentApplication.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9DcmVhdGVTdHVkZW50QXBwbGljYXRpb24ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/EditStudentApplication.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FZGl0U3R1ZGVudEFwcGxpY2F0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/Error.razor]
@@ -56,14 +56,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ob3RGb3VuZC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/StudentApplications.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TdHVkZW50QXBwbGljYXRpb25zLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/UniversityExplorer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Vbml2ZXJzaXR5RXhwbG9yZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/Pages/Weather.razor]
@@ -82,12 +74,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TdHVkZW50QXBwbGljYXRpb25Sb3cucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/StudentApplications.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TdHVkZW50QXBwbGljYXRpb25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/UniversityCard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vbml2ZXJzaXR5Q2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/UniversityDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vbml2ZXJzaXR5RGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/UniversityExplorer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vbml2ZXJzaXR5RXhwbG9yZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/babu/Documents/UniversityExplorerPortalCA2-78853/UniversityExplorerPortalCA2-78853/Components/_Imports.razor]
