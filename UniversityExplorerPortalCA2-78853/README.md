@@ -1,33 +1,29 @@
 # University Explorer Portal (CA2)
 
-This is my CA2 project for the BSc 
-in Computing & Multimedia course. 
-It's a Blazor Server app that lets users search through 
-universities and countries using public APIs, 
-and also manage student applications 
-with full CRUD features via the `edutots.net` backend API.
+This is my CA2 project for the BSc in Science in Computing & Multimedia
+module "Full Stack Development" at Dorset College Dublin. 
+It is a Blazor Web Application that implements an 
+API Mashup using public Countries and Universities APIs alongside 
+the Edutots Student Application API to manage university applications.
 
 ## Student Info
-Name: Bavuudorj Khatanbaatar
+* Name: Bavuudorj Khatanbaatar
 * Student ID: 78853
-* Course: 3rd year
+* Course: BSc in Science in Computing & Multimedia (Year 3)
 * College: Dorset College Dublin
 
-## What it does
-* API Search:** Lets you search for universities and countries in real-time.
-* Student Applications (CRUD):
-    * Add new applications.
-    * View all submitted applications in a clean list.
-    * Edit existing records.
-    * Delete records when needed.
-* Interactive UI: Built using Blazor Server components so 
-* things update smoothly without reloading the whole page.
+## What It Does
+* University Explorer (API Mashup):
+* Select a country to view its details, browse universities in that country, 
+* filter universities in real time, and view selected university details.
+* Student Applications (CRUD): View submitted applications (`GET`), 
+* create new applications (`POST`), and edit existing applications (`PUT`).
 
 ## Tech Stack
 * Framework: .NET (Blazor Server)
 * Language: C#
 * APIs: Countries API, Universities API, and `edutots.net` Student Application API
-* **Frontend:** Bootstrap & Razor components
+* Frontend: Bootstrap & Razor components
 
 ## How to run it locally
 1. Clone the repo: bash
