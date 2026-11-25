@@ -33,29 +33,28 @@ the Edutots Student Application API to manage university applications.
    dotnet restore
    dotnet run
    ```
-
 ## Screenshots
 
 ### 1. Home Page
-![Home Page](ScreenShots/Home%20Page.png)
+![Home Page](<UniversityExplorerPortalCA2-78853/ScreenShots/Home Page.png>)
 
 ### 2. University Explorer Page
-![University Explorer Page](ScreenShots/University%20Explorer.png)
+![University Explorer Page](<UniversityExplorerPortalCA2-78853/ScreenShots/University Explorer.png>)
 
 ### 3. Country Selected
-![Country Selected](ScreenShots/Country%20selected.png)
+![Country Selected](<UniversityExplorerPortalCA2-78853/ScreenShots/Country selected.png>)
 
 ### 4. Created New Student Form
-![Created New Student Form](ScreenShots/Created%20new%20student%20form.png)
+![Created New Student Form](<UniversityExplorerPortalCA2-78853/ScreenShots/Created new student form.png>)
 
 ### 5. Student Successfully Created
-![Student Successfully Created](ScreenShots/Student%20Succesfully%20created.png)
+![Student Successfully Created](<UniversityExplorerPortalCA2-78853/ScreenShots/Student Succesfully created.png>)
 
 ### 6. Student Application Page
-![Student Application Page](ScreenShots/Student%20Application%20Page.png)
+![Student Application Page](<UniversityExplorerPortalCA2-78853/ScreenShots/Student Application Page.png>)
 
 ### 7. Loading State
-![Loading State](ScreenShots/loadgin%20state1.png)
+![Loading State](<UniversityExplorerPortalCA2-78853/ScreenShots/loadgin state1.png>)
 
 ### 8. Error Handling
-![Error Handling](ScreenShots/Error%20Handling.png)
+![Error Handling](<UniversityExplorerPortalCA2-78853/ScreenShots/Error Handling.png>)
